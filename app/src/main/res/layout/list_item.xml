@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="user"
+            type="databindings.com.databinding.models.User" />
+
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.getFirstName()}" />
+
+        <TextView
+            android:id="@+id/last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first_name"
+            android:text="@{TextUtils.isEmpty(user.getLastName())?user.getFirstName():user.getLastName()}" />
+
+        <TextView
+            android:id="@+id/last_name_duplicate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first_name"
+            android:text="@{TextUtils.isEmpty(user.getLastName())?user.getFirstName():user.getLastName()}" />
+    </RelativeLayout>
+</layout>
